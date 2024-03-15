@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="generator">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Sonic Alchemy</title>
+		<link rel="stylesheet" href="/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+
+
+	<body id = "body">
+		<main>
+			<section>
+				<!-- threejs -->
+			</section>
+			<div id = 'form' >
+				<div class="button-container">
+					<button type="minimize" class="selected_button" id="minimize_button"><i class="fa fa-th"></i></button>
+					<button type="mute" class="unselected_button" id="mute_button">Audio On</button>
+					<button type="random" id="random_button" class="unselected_button" onclick="toggleSelect('random_button')">Randomize</button>
+					<button type="shuffle" id="shuffle_button" class="selected_button" onclick="toggleSelect('shuffle_button')">Sort by Material</button>
+				</div>
+				<div class="canvas" id="graph">
+					<div class="canvas-container" id="gradientBox">
+					<!-- canvas is dynamically added here -->
+					</div>
+				</div>
+			</div>
+
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>		
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r125/three.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/tone@14"></script>   
+			<script src="includes.js"></script>
+			<script src="vert.js"></script>
+			<script src="frag.js"></script>
+			<script src="plate.js"></script>		
+			<script src="sound-visual.js"></script>
+			<script src="sound.js"></script>
+		</main>
+	</body>
+</html>

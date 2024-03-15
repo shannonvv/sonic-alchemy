@@ -1,0 +1,117 @@
+@font-face {
+  font-family:  "iA Writer Mono V";
+  font-style:  italic;
+  src:  url(ia-writer-mono-latin-400-normal.ttf);
+}  
+
+body {
+  background-color: black;
+	font-family: iA Writer Mono V;
+	font-size: 14px;
+	line-height: 1.;
+	color: black;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0px 1fr;
+  grid-template-areas: "form" "section";
+  min-height: 100vh; 
+  position: relative;
+}
+
+#form {
+  background-color: black;
+  grid-area: form;
+  padding-top: 10px;
+  width: calc(40%); 
+  box-sizing: border-box;
+}
+
+section {
+  grid-area: section;
+  padding: 0px;
+}
+
+#graph {
+  width: 100%; 
+  position: relative;
+}
+
+#gradientBox {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.0);;
+}
+
+section {
+  grid-area: section;
+  padding: 0px;
+}
+
+.button-container {
+  background-color: rgba(0, 0, 0, 0.0);
+  display: flex; 
+  justify-content: space-evenly; 
+}
+
+
+.button-container button {
+  min-height: 10px; 
+  width: 100%;
+  text-align: center;
+  line-height: 1.4;
+  font-family: iA Writer Mono V;
+  font-size: .8em;
+  padding-right: 2px; 
+  padding-left: 2px; 
+  padding-top: 2px; 
+  padding: 0px; 
+  margin-bottom: 8px;
+  margin-right: 8px;
+  background-color: black;
+  border-radius: 5px;
+  word-wrap: break-word; /* text wraps to the next line */
+  white-space: normal; /* text breaks at whitespace */
+}
+
+.button-container button:last-child {
+  margin-right: 0;
+}
+
+
+#minimize_button {
+  font-style: normal;
+  font-size: 30px;
+  text-align: left;
+  font-weight: bold;
+
+  padding: 0;
+  padding-top: 0px;
+  border: none;
+  width: 30px;
+  height: 30px;
+  background: none;
+}
+
+.unselected_button {
+  border: 1px solid lightgray;
+  color: lightgray;
+}
+
+.selected_button {
+  border: 1px solid yellow;
+  color: yellow;
+}
+
+.minimized {
+  display: none;
+  color: darkgrey
+}
+
+.selected_toggle {
+  color: yellow;
+}
