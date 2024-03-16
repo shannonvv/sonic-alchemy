@@ -26,7 +26,7 @@ function setup() {
     form = document.getElementById('form');
     
     gradientBox = document.getElementById('graph');
-    gradientBox.style.height = (window.innerWidth * .4 * .164) + "px";
+    gradientBox.style.height = (window.innerWidth * .4 * .162) + "px";
 
     canvas = createCanvas(gradientBox.offsetWidth, gradientBox.offsetHeight);
     canvas.parent('gradientBox');
@@ -305,7 +305,7 @@ function windowResized() {
     const newWidth = (window.innerWidth * .4) + "px";
     form.style.width = newWidth;
     
-    resizeCanvas(form.offsetWidth, form.offsetWidth * .168);
+    resizeCanvas(form.offsetWidth, form.offsetWidth * .162);
 
     section.clientWidth = window.innerWidth
     section.clientHeight = window.innerHeight

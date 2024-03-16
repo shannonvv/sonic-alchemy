@@ -27,6 +27,7 @@ main {
   background-color: black;
   grid-area: form;
   padding-top: 10px;
+  padding-left: 10px;
   width: calc(40%); 
   box-sizing: border-box;
 }
@@ -79,7 +80,7 @@ section {
 }
 
 .button-container button:last-child {
-  margin-right: 0;
+  margin-right: -10;
 }
 
 
