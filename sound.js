@@ -28,7 +28,7 @@ function loadPlayers(name, url, pan) {
 
 function createPlaylist() {
     for (let i = 1; i < 600; i++) {
-        filePath = '/MAT-FINAL/'
+        filePath = 'https://raw.githubusercontent.com/shannonvv/sonic-alchemy/MAT-FINAL/'
         fileName = filePath + i + ".mp3"
         loadPlayers(i, fileName, 0)
     }
