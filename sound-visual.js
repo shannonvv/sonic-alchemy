@@ -252,7 +252,9 @@ function mouseDragged() {
                 } 
 
                 trackListCopy = trackList;
-                playInitialLoop(square.index);
+                setTimeout(function() {
+                    playInitialLoop(square.index);
+                }, 10);
                 square.selected = true; 
             }  
     }    
