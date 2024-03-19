@@ -26,7 +26,7 @@ function setup() {
     form = document.getElementById('form');
     
     gradientBox = document.getElementById('graph');
-    gradientBox.style.height = (window.innerWidth * .4 * .162) + "px";
+    gradientBox.style.height = (((window.innerWidth * .4)/60 * 9.5)) + "px";
 
     canvas = createCanvas(gradientBox.offsetWidth, gradientBox.offsetHeight);
     canvas.parent('gradientBox');
@@ -71,30 +71,43 @@ function setup() {
 
 
 function draw() {
-    background(255,255,0); 
-    let colorValues = [100, 80, 60, 0]
-    let colorVal = 0
-    for (let i = 0; i < grid.length; i++) {
-        let square = grid[i];
-        strokeWeight(2)
-            
-        if (trackListCopy.includes((square.index))) {
-            let indexInTrackList = trackListCopy.indexOf((square.index));
-            let colorValue = colorValues[indexInTrackList % colorValues.length];
-            strokeWeight(0)
-            fill(255, colorValue, colorValue);
 
-        } else {
-            strokeWeight(.7)
-            //fill(square.color[0]+colorVal, square.color[1]+colorVal, square.color[2]-colorVal);
-            fill(square.color[0], square.color[1], square.color[2]);
+    if (isUploading) {
+        let loadingText = "Audio files are loading . . .";
+        background(50); 
+        textFont('iA Writer Mono V')
+        fill(120); 
+        let loadingFontSize = 10
+        textSize(loadingFontSize );
+        strokeWeight(0)
+        let w = textWidth(loadingText);
+        text(loadingText, (canvas.width-w)/2, canvas.height/2);
+    } else {
+        background(255, 0,0); 
+        let colorValues = [100, 80, 60, 0]
+        let colorVal = 0
+        for (let i = 0; i < grid.length; i++) {
+            let square = grid[i];
+            strokeWeight(2)
+                
+            if (trackListCopy.includes((square.index))) {
+                let indexInTrackList = trackListCopy.indexOf((square.index));
+                let colorValue = colorValues[indexInTrackList % colorValues.length];
+                strokeWeight(0)
+                fill(255, colorValue, colorValue);
+
+            } else {
+                strokeWeight(.7)
+                //fill(square.color[0]+colorVal, square.color[1]+colorVal, square.color[2]-colorVal);
+                fill(square.color[0], square.color[1], square.color[2]);
+            }
+            colorVal += 1
+            if (colorVal === 100) {
+                colorVal = 0
+                stroke(128, 128, 128)
+            }
+            rect(square.x, square.y, square.width, square.height);
         }
-        colorVal += 1
-        if (colorVal === 100) {
-            colorVal = 0
-            stroke(128, 128, 128)
-        }
-        rect(square.x, square.y, square.width, square.height);
     }
 }
 
@@ -274,7 +287,6 @@ function mousePressed() {
                 }
                 //isMuted = false;
                 isLoopPlaying = false;
-
      } 
  }
  }
@@ -303,10 +315,10 @@ function windowResized() {
     
     const form = document.getElementById('form');
     const newWidth = (window.innerWidth * .4) + "px";
+
     form.style.width = newWidth;
     
-    resizeCanvas(form.offsetWidth, form.offsetWidth * .162);
-
+    resizeCanvas(form.offsetWidth * .975, form.offsetWidth * .162);
     section.clientWidth = window.innerWidth
     section.clientHeight = window.innerHeight
 

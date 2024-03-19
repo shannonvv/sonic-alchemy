@@ -1,7 +1,7 @@
 @font-face {
   font-family:  "iA Writer Mono V";
-  font-style:  italic;
-  src:  url(ia-writer-mono-latin-400-normal.ttf);
+  font-style:  normal;
+  src:  url(https://raw.githubusercontent.com/shannonvv/sonic-alchemy/main/ia-writer-mono-latin-400-normal.ttf) format("truetype");
 }  
 
 body {
@@ -28,6 +28,7 @@ main {
   grid-area: form;
   padding-top: 10px;
   padding-left: 10px;
+  padding-right: 0px;
   width: calc(40%); 
   box-sizing: border-box;
 }
@@ -59,14 +60,13 @@ section {
   justify-content: space-evenly; 
 }
 
-
 .button-container button {
   min-height: 10px; 
   width: 100%;
   text-align: center;
   line-height: 1.4;
   font-family: iA Writer Mono V;
-  font-size: .8em;
+  font-size: .75em;
   padding-right: 2px; 
   padding-left: 2px; 
   padding-top: 2px; 
@@ -77,10 +77,11 @@ section {
   border-radius: 5px;
   word-wrap: break-word; /* text wraps to the next line */
   white-space: normal; /* text breaks at whitespace */
+  z-index: 1;
 }
 
 .button-container button:last-child {
-  margin-right: -10;
+  margin-right: 0;
 }
 
 

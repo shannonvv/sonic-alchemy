@@ -2,13 +2,14 @@ let players = []
 let playersOriginal = []
 let timeoutID;
 let volume;
-let offset = 5;
+let offset = 0;
 let isLoopPlaying = false;
 let totalDuration;
 let activePlayers = [];
 let currentPlayer;
 let isMuted = false;
 let isLoaded = false;
+let isUploading = false;
 
 function loadPlayers(name, url, pan) {
 
@@ -74,7 +75,6 @@ const playerManager = {
 
 scratchPlayers = []
 
-
 function playInitialLoop(playlist, startPosition) {
     currentPlayer = players[playlist]
 
@@ -124,6 +124,7 @@ function playInitialLoop(playlist, startPosition) {
         }
 } 
 } catch (error) {
+    console.error('An error occurred:', error);
     handleAudioError(error);
 }
 
@@ -185,24 +186,28 @@ function resetPlayer() {
 }
 
 function toggleLoop() {
+
+
     const toggleButton = document.getElementById('mute_button');
     if (isMuted === false && players.length === 0) {
+        isUploading = true;
         toggleButton.classList.add('selected_button')
         createPlaylist();
 
         // wait for the buffers to load
         setTimeout(() => {
-        Tone.Master.volume.value = -6;
-        isLoaded = true;
-        isMuted = false;
-        }, 500);
+            Tone.Master.volume.value = -6;
+            isLoaded = true;
+            isMuted = false;
+            isUploading = false;
+        }, 3000);
 
    } else if (isMuted === false) {
-        toggleButton.classList.add('selected_button')
+        toggleButton.classList.remove('selected_button')
         Tone.Master.volume.value = -Infinity;
         isMuted = true;
    } else if (isMuted === true) {
-        toggleButton.classList.remove('selected_button')
+        toggleButton.classList.add('selected_button')
        isMuted = false;
        isLoopPlaying = true;
        Tone.Master.volume.value = -6;
